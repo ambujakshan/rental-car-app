@@ -10,12 +10,15 @@ export default function Navbar() {
   };
 
   return (
-    <div style={{ padding: "10px", background: "#222", color: "#fff" }}>
-      <Link to="/dashboard" style={{ color: "#fff", marginRight: "15px" }}>Dashboard</Link>
-      <Link to="/cars" style={{ color: "#fff", marginRight: "15px" }}>Cars</Link>
-      <Link to="/customers" style={{ color: "#fff", marginRight: "15px" }}>Customers</Link>
-      <Link to="/bookings" style={{ color: "#fff", marginRight: "15px" }}>Bookings</Link>
-      <button onClick={logout} style={{ float: "right" }}>Logout</button>
-    </div>
+    <nav className="topbar">
+      <div className="topbar__brand">DriveDesk</div>
+      <div className="topbar__links">
+        <Link to="/dashboard" className="topbar__link">Dashboard</Link>
+        <Link to="/cars" className="topbar__link">Cars</Link>
+        <Link to="/customers" className="topbar__link">Customers</Link>
+        <Link to="/bookings" className="topbar__link">Bookings</Link>
+      </div>
+      <button onClick={logout} className="topbar__button">Logout</button>
+    </nav>
   );
 }

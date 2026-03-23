@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -18,25 +18,30 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{ width: "300px", margin: "100px auto" }}>
-      <h2>Rental Car Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={form.username}
-          onChange={(e) => setForm({ ...form, username: e.target.value })}
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-          style={{ width: "100%", marginBottom: "10px", padding: "8px" }}
-        />
-        <button type="submit" style={{ width: "100%", padding: "10px" }}>Login</button>
-      </form>
+    <div className="login-page">
+      <div className="login-card">
+        <div className="login-card__copy">
+          <p className="eyebrow">Admin access</p>
+          <h2>Rental Car Login</h2>
+          <p>Sign in to manage cars, customers, and bookings from the dashboard.</p>
+        </div>
+        <form onSubmit={handleLogin} className="cars-form">
+          <input
+            type="text"
+            placeholder="Username"
+            value={form.username}
+            onChange={(e) => setForm({ ...form, username: e.target.value })}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+          <button type="submit" className="primary-button">Login</button>
+        </form>
+        <Link to="/" className="login-back">Back to website</Link>
+      </div>
     </div>
   );
 }
